@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 98%;
+  margin: auto;
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+.divide {
+  height: 90%;
+  position: relative;
+}
+.widget {
+  background-color: #9acfea;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+.kanband {
+  background-color: beige;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.tool {
+  border: 3px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  white-space: nowrap;
+  z-index: 2;
+}
