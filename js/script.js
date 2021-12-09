@@ -23,6 +23,7 @@ $(document).ready(function () {
             }
             diagram.push(node);
             renderDiagram(diagram)
+            localStorage.setItem('widgets', JSON.stringify(diagram));
         }
     });
     function renderDiagram(diagram) {
@@ -46,7 +47,9 @@ $(document).ready(function () {
             }).draggable({
                 stop: function (event, ui) {
                     console.log(ui);
+                    let local = JSON.parse(localStorage.getItem('widgets'))
                     var id = ui.helper.attr("id");
+                    // update the position in the DOM
                     for (var d in diagram) {
                         var node = diagram[d]
                         if (node._id == id) {
@@ -54,6 +57,15 @@ $(document).ready(function () {
                             node.position.left = ui.position.left
                         }
                     }
+                    // update the position in the local storage
+                    local.forEach((element) => {
+                        if (element._id == id) {
+                            element.position.top = ui.position.top
+                            element.position.left = ui.position.left
+                        }
+                    })
+                    console.log(JSON.stringify(local))
+                    localStorage.setItem('widgets', JSON.stringify(local));
                 }
             }).attr("id", node._id)
             canvas.append(dom)
